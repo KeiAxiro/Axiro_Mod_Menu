@@ -3,7 +3,9 @@
 # For more examples on how to use CMake, see https://github.com/android/ndk-samples.
 
 # Sets the minimum CMake version required for this project.
+
 cmake_minimum_required(VERSION 3.22.1)
+set(CMAKE_FLAGS "${CMAKE_CXX_FLAGS} -Wno-format-security")
 
 # Declares the project name. The project name can be accessed via ${ PROJECT_NAME},
 # Since this is the top level CMakeLists.txt, the project name is also accessible
@@ -26,7 +28,13 @@ project("keimodmenu")
 # used in the AndroidManifest.xml file.
 add_library(${CMAKE_PROJECT_NAME} SHARED
         # List C/C++ source files with relative paths to this CMakeLists.txt.
-        Main.cpp)
+        Main.cpp
+        Substrate/hde64.c
+        Substrate/SubstrateDebug.cpp
+        Substrate/SubstrateHook.cpp
+        Substrate/SubstratePosixMemory.cpp
+        Substrate/SymbolFinder.cpp
+        And64InlineHook/And64InlineHook.cpp)
 
 # Specifies libraries CMake should link to your target library. You
 # can link libraries from various origins, such as libraries defined in this

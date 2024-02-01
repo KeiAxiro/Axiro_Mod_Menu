@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/src/androidTest/java/com/keimodmenu/
+/app/src/test/java/com/keimodmenu/
